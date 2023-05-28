@@ -7,6 +7,7 @@ Kubernetes. Часть 1
 3. В качестве ответа пришлите скриншот результата выполнения команды kubectl get po -n kube-system.
 ### Ответ:
 <img width="960" alt="6-05_1 1" src="https://github.com/Roman-Teterevlev/SYS-21_6-05/assets/132853752/0de97edb-a817-45f0-9e7b-edcab683427f">
+
 ## Задание 2
 Есть файл с деплоем:
 ```
