@@ -42,6 +42,46 @@ spec:
 2. Запустите Deployment в своём кластере и добейтесь его стабильной работы.
 3. В качестве решения пришлите получившийся файл.
 ### Ответ:
+```
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+spec:
+  selector:
+    matchLabels:
+      app: redis
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+      - name: master
+        image: bitnami/redis:6.0.13
+        env:
+         - name: ALLOW_EMPTY_PASSWORD
+           value: "yes"
+        ports:
+         - containerPort: 6379
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+spec:
+  selector:
+    app: redis
+  ports:
+    - protocol: TCP
+      port: 6379
+      targetPort: 6379
+```
+
+<img width="960" alt="6-05_2 1" src="https://github.com/Roman-Teterevlev/SYS-21_6-05/assets/132853752/58a39990-b84f-4df8-8a5a-b9888af61846">
+<img width="960" alt="6-05_2 2" src="https://github.com/Roman-Teterevlev/SYS-21_6-05/assets/132853752/9ca05c89-fd9c-436d-b184-564566dd90d6">
 
 ## Задание 3
 Выполните действия:
