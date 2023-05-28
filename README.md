@@ -92,3 +92,18 @@ spec:
 - проброса порта локальной машины в контейнер для отладки.
 2. В качестве решения пришлите получившиеся команды.
 ### Ответ:
+```
+kubectl exec -it redis-58c6d4947b-m9wwx -- ps aux
+```
+```
+kubectl logs --since=5m redis-58c6d4947b-m9wwx
+```
+```
+kubectl delete -f redis.yaml
+```
+```
+kubectl port-forward pod/redis-58c6d4947b-m9wwx 53:6379
+```
+
+<img width="960" alt="6-05_3 1" src="https://github.com/Roman-Teterevlev/SYS-21_6-05/assets/132853752/0f7811e0-53ff-474d-b21b-02a53df83580">
+<img width="960" alt="6-05_3 2" src="https://github.com/Roman-Teterevlev/SYS-21_6-05/assets/132853752/709a0f51-bf4e-4637-99a3-3b64c44360a1">
